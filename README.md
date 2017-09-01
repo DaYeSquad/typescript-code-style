@@ -20,9 +20,9 @@ Code Style 主要面向平均水平的工程师，旨在规避语法陷阱，提
  
 
 
-# JSON 
+## JSON 
  
-## property name 使用驼峰命名法 
+### property name 使用驼峰命名法 
  
 DO:
 ```
@@ -31,7 +31,7 @@ DO:
 }
 ``` 
  
-## 对于值类型是 array 的使用复数给 propery 命名 
+###  对于值类型是 array 的使用复数给 propery 命名 
  
 DO:
 ```
@@ -47,7 +47,7 @@ DO:
 }
 ``` 
  
-## 使用 ISO 8601 标准来表示持续时间 
+###  使用 ISO 8601 标准来表示持续时间 
  
 使用 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) 来表示持续时间
 
@@ -60,7 +60,7 @@ DO:
 }
 ``` 
  
-## 空值的处理 
+###  空值的处理 
  
 对于返回值为空的，可以考虑去掉这个值，如:
 
@@ -74,7 +74,7 @@ DO:
 }
 ``` 
  
-## 使用 string 类型表示 enum 
+###  使用 string 类型表示 enum 
  
 使用 string 类型来表示 enum 而不是 int 类型，这将大大增加返回值的可读性
 
@@ -96,7 +96,7 @@ public enum Color {
 }
 ``` 
  
-## 使用 RFC 3339 或者 Unix Timestamp 来表示时间点 
+###  使用 RFC 3339 或者 Unix Timestamp 来表示时间点 
  
 允许使用 [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) 或者 Unix Timestamp 来表示时间点
 
@@ -116,7 +116,7 @@ DO:
  
  
  
-## README 
+###  README 
  
 大多数情况下，使用如下命名:
 `functionNamesLikeThis`, `variableNamesLikeThis`, `ClassNamesLikeThis`, `EnumNamesLikeThis`, `methodNamesLikeThis`, `CONSTANT_VALUES_LIKE_THIS`, `foo.namespaceNamesLikeThis.bar` 以及 `filenameslikethis.js`,  `filenameslikethis.ts`
@@ -127,7 +127,7 @@ protected 的方法和变量使用和 public 方法变量一样的命名，不�
 
 **尽可能使用完整的单词而不是缩写来命名** 
  
-## 使用双引号或者 Template String来表示字符串 
+#### 使用双引号或者 Template String来表示字符串 
  
 相对于双引号，推荐使用单引号或者 Template String 语法来表示字符串
 
@@ -136,7 +136,7 @@ tslint
 "quotemark:" [true, "double", "avoid-escape"]
 ``` 
  
-## 函数变量超过 100 个字符时候需要进行换行 
+- 函数变量超过 100 个字符时候需要进行换行 
  
 需要在函数字符超过100个/行时进行换行
 
@@ -177,7 +177,7 @@ function bar(veryDescriptiveArgumentNumberOne,
 }
 ``` 
  
-## 使用空行来组织代码的逻辑 
+#### 使用空行来组织代码的逻辑 
  
 使用空行来视觉分割逻辑
 
@@ -192,7 +192,7 @@ nowDoSomethingWith(y);
 andNowWith(z);
 ``` 
  
-## 使用 opt_ 前缀表明函数内的某参数为可选参数 
+#### 使用 opt_ 前缀表明函数内的某参数为可选参数 
  
 如果函数中有变量为可选参数，使用 opt_ 开头
 
@@ -203,17 +203,17 @@ function strangeButTrue(nonNull, mayBeNull, opt_nonNull, opt_mayBeNull) {
 };
 ``` 
  
-# 注释 
+### 注释 
  
-## 使用 @license / @preserve 来标记让一些重要的信息(如法律许可或版权信息)原样保留, 同样, 文本中的换行也会被保留 
- 
- 
- 
-## 使用 @expose 来声明一个不可修改，消除和优化的属性 
+- 使用 @license / @preserve 来标记让一些重要的信息(如法律许可或版权信息)原样保留, 同样, 文本中的换行也会被保留 
  
  
  
-## 使用 @see 来给出引用链接, 用于进一步查看函数 / 方法的相关细节 
+- 使用 @expose 来声明一个不可修改，消除和优化的属性 
+ 
+ 
+ 
+- 使用 @see 来给出引用链接, 用于进一步查看函数 / 方法的相关细节 
  
 例如 :
 
@@ -226,7 +226,7 @@ function strangeButTrue(nonNull, mayBeNull, opt_nonNull, opt_mayBeNull) {
  ...
 ``` 
  
-## 使用 @author 来表示该文件的作者 
+- 使用 @author 来表示该文件的作者 
  
 描述:
 代码的作者，通常只用在 `@fileoverview` 的注释内
@@ -242,7 +242,7 @@ function strangeButTrue(nonNull, mayBeNull, opt_nonNull, opt_mayBeNull) {
  */
 ``` 
  
-## 使用 @dict 来指定只能用括号形式来获取属性的对象 
+- 使用 @dict 来指定只能用括号形式来获取属性的对象 
  
 例如：
 
@@ -260,7 +260,7 @@ var num = obj.x;  // warning
 (/** @dict */ { x: 1 }).x = 123;  // warning
 ``` 
  
-## 使用 @const 来声明变量为只读，或声明方法不可重载和不可重写 
+-  使用 @const 来声明变量为只读，或声明方法不可重载和不可重写 
  
 例如：
 
@@ -277,7 +277,7 @@ mynamespace.MY_BEER = 'stout';
 /** @const */ MyClass.MY_BEER = 'stout';
 ``` 
  
-## 使用 @define 来声明一个在编译时被重载的常量 
+-  使用 @define 来声明一个在编译时被重载的常量 
  
 例如：
 
@@ -296,11 +296,11 @@ goog.userAgent.ASSUME_IE = false;
 
 这个编译之后, 常量 goog.userAgent.ASSUME_IE 将被全部直接替换为 true. 
  
-## 使用 @supported 在 @fileoverview 中来指定兼容的浏览器 
+- 使用 @supported 在 @fileoverview 中来指定兼容的浏览器 
  
  
  
-## 使用 @enum 来声明枚举对象 
+-  使用 @enum 来声明枚举对象 
  
 例如：
 
@@ -316,7 +316,7 @@ project.TriState = {
 };
 ``` 
  
-## 使用 @protect 来指明受保护的方法或属性 
+-  使用 @protect 来指明受保护的方法或属性 
  
 例如:
 
@@ -331,7 +331,7 @@ goog.ui.Component.prototype.setElementInternal = function(element) {
 };
 ``` 
  
-## 属性注释 
+- 属性注释 
  
 例如:
 ```
@@ -342,7 +342,7 @@ goog.ui.Component.prototype.setElementInternal = function(element) {
 project.MyClass.prototype.someProperty = 4;
 ``` 
  
-## 使用 @typedef 来给一个复杂的类型取一个别名 
+- 使用 @typedef 来给一个复杂的类型取一个别名 
  
 例如：
 
@@ -356,7 +356,7 @@ goog.readNumber = function(x) {
 }
 ``` 
  
-## 使用 @private 来指明私有的方法或属性 
+- 使用 @private 来指明私有的方法或属性 
  
 /**
  * Handlers that are listening to this logger.
@@ -364,7 +364,7 @@ goog.readNumber = function(x) {
  */
 this.handlers_ = []; 
  
-## 每个类的定义都要附带一份注释, 描述类的功能和用法 
+- 每个类的定义都要附带一份注释, 描述类的功能和用法 
  
 也需要说明构造器参数. 如果该类继承自其它类, 应该使用`@extends` 标记. 如果该类是对接口的实现, 应该使用 `@implements` 标记.
 
@@ -384,7 +384,7 @@ project.MyClass = function(arg1, arg2) {
 goog.inherits(project.MyClass, goog.Disposable);
 ``` 
  
-## 使用 @suppress 来忽略警告信息 
+- 使用 @suppress 来忽略警告信息 
  
 警告种类以 `|` 或`,`来分隔
 
@@ -399,15 +399,15 @@ function f() {
 }
 ``` 
  
-## 使用 @override 来指明子类的方法和属性是故意隐藏了父类的方法和属性. 如果子类的方法和属性没有自己的文档, 就会继承父类的 
+- 使用 @override 来指明子类的方法和属性是故意隐藏了父类的方法和属性. 如果子类的方法和属性没有自己的文档, 就会继承父类的 
  
  
  
-## 使用 @export 标记要将名字原样导出的方法 
+- 使用 @export 标记要将名字原样导出的方法 
  
  
  
-## 使用 @public 来指明公共的方法或属性 
+- 使用 @public 来指明公共的方法或属性 
  
 例如：
 
@@ -421,7 +421,7 @@ function f() {
  goog.events.Event.prototype.propagationStopped_ = false;
 ``` 
  
-## 使用 @fileoverview 来声明文件相关信息 
+- 使用 @fileoverview 来声明文件相关信息 
  
 例如：
 
@@ -433,7 +433,7 @@ function f() {
  */
 ``` 
  
-## 使用 @nosideeffects 来声明一个没有副作用的函数 
+- 使用 @nosideeffects 来声明一个没有副作用的函数 
  
 用于对函数或构造器声明, 说明调用此函数不会有副作用. 编译器遇到此标记时, 如果调用函数的返回值没有其他地方使用到, 则会将这个函数整个删除
 
@@ -456,7 +456,7 @@ a.prototype.noSideEffectsFn3 = function() {
 };
 ``` 
  
-## 使用 @template 声明模板 
+- 使用 @template 声明模板 
  
 例如：
 
@@ -472,7 +472,7 @@ goog.bind = function(fn, thisObj, var_args) {
 };
 ``` 
  
-## 使用 @code 来说明这是一段代码，让它能在生成的文档中正确显示 
+- 使用 @code 来说明这是一段代码，让它能在生成的文档中正确显示 
  
 例如：
 
@@ -488,7 +488,7 @@ goog.dom.RangeIterator.prototype.next = function() {
 };
 ``` 
  
-## README 
+#### README 
  
 使用 JSDoc 语法进行注释
 
@@ -498,7 +498,7 @@ goog.dom.RangeIterator.prototype.next = function() {
 
 行内注释使用 `//变量` 的形式 
  
-## 使用 @deprecated 来声明一个过时的函数，方法，或属性 
+- 使用 @deprecated 来声明一个过时的函数，方法，或属性 
  
 常常要指定建议使用的方法
 
@@ -517,7 +517,7 @@ BN_EditUtil.isTopEditableField = function(node) {
 };
 ``` 
  
-## 使用 @return 来给方法，函数的返回值添加说明 
+- 使用 @return 来给方法，函数的返回值添加说明 
  
 例如：
 
